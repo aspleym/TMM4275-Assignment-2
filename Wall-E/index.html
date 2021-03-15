@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Wall-E</title>
+  </head>
+  <body>
+    <script type="module" src="./js/preview.js"></script>
+    <div>
+      <div class="header">
+        <div class="logo">
+          <div
+            style="
+              background-color: #008cff;
+              width: 50px;
+              height: 45px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <h1 style="color: white">W</h1>
+          </div>
+          <h2 style="text-align: left; color: #008cff; margin-left: 1vw">
+            Wall-E
+          </h2>
+        </div>
+      </div>
+      <div class="content">
+        <div class="mainContent">
+          <div id="dimensions" class="form" style="display: block">
+            <form>
+              <label class="text" for="dCName">Dimensions [mm]:</label>
+              <div class="parameters">
+                <input
+                  class="inputDim"
+                  type="number"
+                  id="mLength"
+                  name="length"
+                  value="100"
+                  required
+                  min="1"
+                />
+                <label class="text">x</label>
+                <input
+                  class="inputDim"
+                  type="number"
+                  id="mWidth"
+                  name="Width"
+                  value="100"
+                  required
+                  min="1"
+                />
+              </div>
+
+              <label class="text" for="dCName">Maze complexity:</label>
+              <div class="btn-group">
+                <div id="first-btn">Low</div>
+                <div>Medium</div>
+                <div>High</div>
+                <div>Extreme</div>
+              </div>
+
+              <button type="submit" value="Submit">Regenerate maze</button>
+            </form>
+          </div>
+        </div>
+        <div class="preview_container">
+          <label class="text">Preview</label>
+          <div class="preview" id="preview"></div>
+          <div class="wireframe">
+            <button>Import</button>
+            <input type="checkbox" id="wireframe" name="wireframe" />
+            <label for="wireframe" id="wire_label">Wireframe</label>
+            <button>Export</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Script for select box
+    const button = document
+      .getElementById("first-btn")
+      .addEventListener("click", () => {
+        console.log("click!");
+      });
+  </script>
+</html>
