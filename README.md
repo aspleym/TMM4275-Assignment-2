@@ -48,9 +48,9 @@ KBE solution to generate potential welding lines.
 
 ### Architecture and Sequence diagrams:
 
-|                                           Architecture                                           |                                                  Generate trajectory/maze                                                   |                                           Import/Export                                           |
-| :----------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
-| ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.pngg) |
+|                                           Architecture                                           |                                                  Generate trajectory/maze                                                   |                                                Import/Export                                                 |
+| :----------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: |
+| ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Import_Export%20Sequence.png) |
 
 ## Built With
 
@@ -136,25 +136,25 @@ python httpserver.py
 
 ## Usage
 
-The website _Wall-E_ is able to read imported _csv_-files made by a user, or use premade templates of different complexities to load a Maze.
+The website _Wall-E_ is able to read imported csv-files made by a user, or use premade templates of different complexities, to load a Maze.
 
-If the user imports a csv, the file will be stored on the server. The predmate templates are already stored on the server.
+If the user imports a csv-file, the file will be stored on the server. The premade templates are already stored on the server.
 
 When the user clicks _Generate Trajectory_ the page will generate a welding trajectory for the given maze. The trajectory will be stored on the fuseki server.
 
-A DFA generator will read the trajectory from the server and make a DFA file with the trajectory and the maze.
+A DFA generator will read the trajectory from the fuseki server and make a DFA-file displaying the trajectory and the maze.
 
-The user will be redirected to _order.html_ where it will be possible to download the generated DFA file
+The user will be redirected to _order.html_ where it is possible to download the generated DFA-file
 
 ### Create your own maze
 
-- Open the excel document located at `Maze/Template.xlsx`
-- 1 represents open areas, while -1 represent walls
-- The numbers can be changed to make your own maze
-- If you higlight a cell, and drags the small square in the bootom right corner, the number in the cell will be copied to the area you drag it over. This can be used to quikcly create or remove walls.
-- NOTE: cell (0,0) must be 1 as the pathfinding algorithm starts in this corner
-- When you are done, select _save as_ and chose _.csv_ as file type
-- This file can now be imported to Wall-E
+- Open the excel document located at `Maze/Template.xlsx`.
+- 1 represents open areas, while -1 represent walls.
+- These numbers can be changed to make your own maze.
+- If you highlight a cell, and drag the small square in the bottom right corner, the number in the cell will be copied to the area you drag it over. This can be used to quickly create or remove walls.
+- NOTE: cell (0,0) must be 1 as the pathfinding algorithm starts in this corner. If you block this square, the algorithm will not find a trajectory.
+- When you are done, select _save as_ and choose _.csv_ as file type. Quickly open the file in notepad and make sure the numbers are seperated with semicolons `;`.
+- This file can now be imported to Wall-E.
 
 ## Examples
 
@@ -171,75 +171,84 @@ The user will be redirected to _order.html_ where it will be possible to downloa
 ## Roadmap
 
 We were not able to complete all of our goals for this project because of the limited time and other school tasks.  
-There are a lot of part with the project that we wished to improve upon. We will list them down here for other people to have an idea of what to do next.
+There are a lot of part with the project that we wished to improve upon. We will list them down here for other people to have an idea of what to do next. We aim to implement some of these features in assignment 3.
 
-Website:
+#### Website:
 
 - Users should be able to input the dimensions for the "maze".
 - Reduce possible bugs with wrong inputs. Import file etc.
 - A preview of the maze and the trajectory using three.js.
+- Option to export random generated mazes.
 
-Python:
+#### Python:
 
-- Generate maze with different complexities.
-  We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
+- Generate random mazes with different complexities.
 
-NX:
+#### Fuseki:
+
+- Store maze in Fuseki. As of now we read a uploaded csv-file.
+
+#### NX:
 
 - Change color on the trajectory depending on if the welding robot is welding, or just moving. This information can already be returned from the pathfinding algorithm.
+- Improve DFA file to optimize construction time in NX.
+
+We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
 
 ## File structure
 
 This is an overview of the file structure for this repository and a short explanation for some of the files.
 
 ```
-TMM4275-Assignment-1
-│   .gitignore					A file to tell Github to ignore files.
-│   httpserver.py				httpserver.py: Python script to execute a http server for the customer.
-│   queries.txt					A txt file with examples of queries in SPARQL.
-│   README.md					This file.
+TMM4275-Assignment-2
+│   .gitignore                        A file to tell Github to ignore files.
+│   httpserver.py                     httpserver.py: Python script to execute a http server and request handler for the customer.
+│   LICENSE                           Standard license file to tell it's class of license.
+│   queries.txt                       A txt file with examples for some of the queries in SPARQL.
+│   README.md                         This file.
 │
-├───ChairMaker
-│   │   index.html				Main HTML file with fields to recieve chair paramters and a 3d preview with three.js.
-│   │   main.css				CSS for styling of the index.html file.
-│   │   manufacturer.html			HTML file for the manufacturer page.
-│   │   order.css				CSS for styling of the order.html file.
-│   │   order.html				Order HTML file where you see final preview and a download link for the DFA file.
+├───DFA                                 Templates for generating DFA-files.
+│   │   MazeAndTrajectoryTemplate.dfa
+│   │   MazeTemplate.dfa
+│   │   TrajectoryTemplate.dfa
 │   │
-│   └───js					JavaScript files to visualize the Chair in 3d
-│           dining_chair.js			Script to build a dining chair in Three.js.
-│           modern_chair.js			Script to build a modern chair in Three.js.
-│           OrbitControls.js			Camera controll.
-│           order.js				JavaScript for order page.
-│           preview.js				Preview script.
-│	    constraintsLoader.js		This file loads manufacturer constraints from the server.
-│           stool_chair.js			Script to build a stool chair in Three.js.
-│           three.js				The Three.js library.
-│           three.min.js			Support file for Three.js
-│           three.module.js			Support file for Three.js
+│   └───products                        Were we store generated DFA-files.
 │
-├───fuseki-server				Fuseki server files to execute the server.
-│   │   fuseki-server
-│   │   fuseki-server.bat
-│   │   fuseki-server.jar
+├───Fuseki                          The folder for the Fuseki sever.
+│
+├───images                          Images for the README.
+│
+├───Maze                            Maze description files. Templates as both csv and xlsx (Excel) files.
+│   │   Template.csv
+│   │   Template.xlsx
 │   │
-│   ├───owl-files
-│   │       shapes.owl				The OWL model.
+│   └───Uploaded
+│           maze0.csv               Predefined maze with low complexity
+│           maze1.csv               Predefined maze with medium complexity
+│           maze2.csv               Predefined maze with high complexity
+│           maze3.csv               Predefined maze with extreme complexity
 │
-├───images					Images for the README.
-│       Client-server architecture.png
-│	Sequence diagram.png
-│       ui.png
+├───OWL
+│       shapes.owl              The OWL model.
 │
-├───products					A folder to store chair DFA files.
-│   └───templates				Templates for different chair types as a DFA file.
-│           diningChair.dfa
-│           modernChair.dfa
-│           stoolChair.dfa
+├───Python
+│   │   fusekiposter.py         The Python file that contains functions to post and get trajectories from the Fuseki server.
+│   │   generateDFA.py          Functions to generate DFA files of trajectory and maze.
+│   │   Maze.py                   Python file to create a Maze model. Contains pathfinding algorithm and helper functions
+│   │   MazeReader.py               Python file to read or write csv-files from server and return it as an array
 │
-└───py
-    │   fusekiposter.py				The Python file that contains functions to post chairs to the Fuseki server.
-    │   generateDFA.py				Functions to generate DFA files of chairs.
+└───Wall-E
+    │   index.html              This is the html file for our Homepage.
+    │   main.css                Styling for index.html.
+    │   order.css               Styling for the result page.
+    │   order.html              The result page giving a download link for the DFA-file.
+    │
+    └───js
+            index.js            Multiple scripts used to handle events on the website.
+            OrbitControls.js    Camera library for Three.js.
+            three.js            Three.js Library.
+            three.min.js
+            three.module.js
 ```
 
 ## Contributors
