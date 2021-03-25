@@ -68,6 +68,13 @@ h2 {
   align-items: center;
 }
 
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+}
+
 .preview {
   display: flex;
   align-items: center;
@@ -90,8 +97,10 @@ h2 {
 }
 
 #import {
-  width: 30%;
+  width: 100%;
   margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #wireframe {

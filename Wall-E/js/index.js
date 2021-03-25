@@ -82,7 +82,7 @@ window.onsubmit = (e) => {
     request.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log("done")
-            //window.location.assign("Wall-E/order.html");
+            window.location.assign("Wall-E/order.html");
         }
     };
     if (mazeName !== null) {

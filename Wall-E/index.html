@@ -57,15 +57,19 @@
                 />
               </div>
 
-              <label class="text" for="dCName">Maze complexity:</label>
+              <label class="text" for="dCName">Select a predefiend maze:</label>
               <div class="btn-group">
                 <div id="low-btn">Low</div>
                 <div id="medium-btn">Medium</div>
                 <div id="high-btn">High</div>
                 <div id="extreme-btn">Extreme</div>
               </div>
+              <div class="flex_column">
+                <div class="text">Or upload you own csv </div>
+                <input type="file" id="import"></input>
+                <button >Generate trajectory</button>
 
-              <button >Regenerate maze</button>
+              </div>
             </form>
           </div>
         </div>
@@ -73,7 +77,6 @@
           <label class="text">Preview</label>
           <div class="preview" id="preview"></div>
           <div class="wireframe">
-            <input type="file" id="import"></input>
             <input type="checkbox" id="wireframe" name="wireframe" />
             <label for="wireframe" id="wire_label">Wireframe</label>
             <button>Export</button>
