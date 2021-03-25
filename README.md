@@ -123,17 +123,23 @@ python httpserver.py
 ```
 - The web server should be available at: `127.0.0.1:8080` in the web browser.
 ## Usage
-The website *Wall-E* is able to read imported *csv*-files or use templates of dif
+The website *Wall-E* is able to read imported *csv*-files made by a user, or use premade templates of different complexities to load a Maze. 
 
-The website *ChairMaker* is able to simulate and create DFA-files for chair products of three types. Dining-, stool- and modern chair. These different types of chairs have some parameters that can be changed and visualized in a preview window before *ordering* the DFA file.
+If the user imports a csv, the file will be stored on the server. The predmate templates are already stored on the server. 
 
-If the values in the parameters are valid, the user will be directed to a *order page* where it will be possible to view the chair and download the corresponding DFA file.
+When the user clicks *Generate Trajectory* the page will generate a welding trajectory for the given maze. The trajectory will be stored on the fuseki server. 
 
-We have chosen only three changeable parameters on each chair. This reduced the amount of nearly identical lines of code and freed up time to work on other functionality, like the 3D preview.
+A DFA generator will read the trajectory from the server and make a DFA file with the trajectory and the maze. 
 
-Manufacturer constraints must be set before using the web application. This can be done by clicking on the ***Go to manufacturer*** button.
+The user will be redirected to *order.html* where it will be possible to download the generated DFA file
 
-- Write how to create and edit a maze
+
+### Create your own maze
+- Open the excel document located at ```Maze/Template.xlsx```
+- 1 represents open areas, while -1 represent walls
+- The numbers can be changed to make your own maze
+- If you higlight a cell, and drags the small square in the bootom right corner, the number in the cell will be copied to the area you drag it over. This can be used to quikcly create or remove walls.
+- NOTE: cell (0,0) must be 1 as the algorithm
 
 ## Examples
 ### Dining chair example
