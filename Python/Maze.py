@@ -1,4 +1,4 @@
-from MazeReader import readCsv, writeCsv
+from Python.MazeReader import readCsv, writeCsv
 
 
 class Maze:
@@ -90,7 +90,6 @@ class Maze:
 
             nextN = tuple(bestPoint)
 
-            # nextN = tuple(filter(lambda x: (x[1] == 3), neigh))[0][0]
             self.data[nextN[0], nextN[1]] = 4
             neigh = self.getNeighbours(nextN, self.data)
             self.trajectory.append(nextN)

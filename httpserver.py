@@ -1,3 +1,5 @@
+from Python.Maze import Maze
+from Python.generateDFA import generateDFA
 import http.server
 import json
 import socketserver
@@ -17,29 +19,7 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Redirects to main page
         if self.path == '/':
             self.path = '/Wall-E/index.html'
-        elif self.path.find('/Wall-E/order.html') != -1:
-
-            self.path
-
-        # Response to order.html http request
-        elif self.path.find('/info') != -1:
-            # Get chair name from url param
-            split_by_q = self.path.split("?")
-            param_str = split_by_q[1]
-
-            parameters = param_str.split("&")
-            pname = parameters[0]
-            chairType = parameters[1]
-
-            data = ""
-
-            self.send_response(200)
-            self.send_header("Content-type", "text/plain; charset=utf-8")
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-
-            self.wfile.write(bytes(data, "utf-8"))
-            return None
+            
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
     def do_POST(self):
@@ -49,21 +29,28 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         boundary = content_type.split("=")[1].encode()
         if boundary.decode('utf-8') == 'UTF-8':
             # We got one of the predefined mazes
+            # Gets the file name:
             content_len = int(self.headers['Content-Length'])
             post_body = self.rfile.read(content_len)
-
             post_string = post_body.decode('utf-8')
             parameters = post_string.split("&")
             mazeUrl = parameters[0].split("=")[1]
-            print(mazeUrl)
-            name = math.floor(time.time()*1000)
+            name = mazeUrl
         else:
             # We got a custom csv
+            # Stores the file on the server and returs the file name
             r, info, path, name = self.deal_post_data(boundary)
-            print(r, info, path, name)
+        # Creating a maze from csv file
+        m = Maze(name)
+        # Generating trajectory
+        m.getTrajectory()
+        # Posting trajectory to fuseki
+        postTrajectory(name.removesuffix(".csv"), m.trajectory)
+        # Generating a dfa containing the maze and the trajectory from fuseki
+        generateDFA(name)
         
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
-
+    # Helper function to store the custom csv on the server
     def deal_post_data(self, boundary):
         
         remainbytes = int(self.headers['content-length'])
@@ -100,7 +87,7 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
                     preline = preline[0:-1]
                 out.write(preline)
                 out.close()
-                return (True, "Upload success!", "%s", "%s" % fn)
+                return (True, "Upload success!", "%s", "%s" % (fn, name))
             else:
                 out.write(preline)
                 preline = line
