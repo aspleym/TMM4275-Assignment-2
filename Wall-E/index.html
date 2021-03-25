@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="Wall-E/main.css" />
     <title>Wall-E</title>
   </head>
   <body>
-    <script type="module" src="./js/preview.js"></script>
+    <script type="module" src="Wall-E/js/preview.js"></script>
+    <script type="module" src="Wall-E/js/index.js"></script>
     <div>
       <div class="header">
         <div class="logo">
@@ -36,20 +37,20 @@
               <label class="text" for="dCName">Dimensions [mm]:</label>
               <div class="parameters">
                 <input
-                  class="inputDim"
+                  class="inputDim textInput"
                   type="number"
                   id="mLength"
-                  name="length"
+                  name="mLength"
                   value="100"
                   required
                   min="1"
                 />
                 <label class="text">x</label>
                 <input
-                  class="inputDim"
+                  class="inputDim textInput"
                   type="number"
                   id="mWidth"
-                  name="Width"
+                  name="mWidth"
                   value="100"
                   required
                   min="1"
@@ -58,13 +59,13 @@
 
               <label class="text" for="dCName">Maze complexity:</label>
               <div class="btn-group">
-                <div id="first-btn">Low</div>
-                <div>Medium</div>
-                <div>High</div>
-                <div>Extreme</div>
+                <div id="low-btn">Low</div>
+                <div id="medium-btn">Medium</div>
+                <div id="high-btn">High</div>
+                <div id="extreme-btn">Extreme</div>
               </div>
 
-              <button type="submit" value="Submit">Regenerate maze</button>
+              <button >Regenerate maze</button>
             </form>
           </div>
         </div>
@@ -72,7 +73,7 @@
           <label class="text">Preview</label>
           <div class="preview" id="preview"></div>
           <div class="wireframe">
-            <button>Import</button>
+            <input type="file" id="import"></input>
             <input type="checkbox" id="wireframe" name="wireframe" />
             <label for="wireframe" id="wire_label">Wireframe</label>
             <button>Export</button>
@@ -83,10 +84,6 @@
   </body>
   <script>
     // Script for select box
-    const button = document
-      .getElementById("first-btn")
-      .addEventListener("click", () => {
-        console.log("click!");
-      });
+    
   </script>
 </html>
