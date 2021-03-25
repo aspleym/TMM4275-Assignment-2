@@ -56,7 +56,7 @@ Sequence diagrams:
 
 Everyone that contributed to the project used [Visual Studio Code](https://code.visualstudio.com/) to develop this software. The next section has a list of libraries and applications that have been used in this project. The names are linked to one of the developers home page for the library.
 
-#### Libraries
+### Libraries
 
 - [Three.js](https://threejs.org/)
 - [http.server](https://docs.python.org/3/library/http.server.html)
@@ -66,7 +66,7 @@ Everyone that contributed to the project used [Visual Studio Code](https://code.
 - [json](https://docs.python.org/3/library/json.html)
 - [pandas](https://pandas.pydata.org/)
 
-#### Trajectory Algorithm
+### Trajectory Algorithm
 
 Breadth-first search
 
