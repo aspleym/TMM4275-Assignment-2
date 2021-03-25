@@ -39,11 +39,14 @@ all the edges connecting walls to the base plane. Having a maze-like structure, 
 KBE solution to generate potential welding lines.
 
 ## Sketch and diagrams
+UI sketches:  
 ![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Homepage.png)
 ![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Result.png)
-
+  
+Architecture:  
 ![image of client-server architecture](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png)
-
+  
+Sequence diagrams:  
 ![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png)
 ![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Import_Export%20Sequence.png)
 
