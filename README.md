@@ -128,6 +128,8 @@ We have chosen only three changeable parameters on each chair. This reduced the 
 
 Manufacturer constraints must be set before using the web application. This can be done by clicking on the ***Go to manufacturer*** button.
 
+- Write how to create and edit a maze
+
 ## Examples
 ### Dining chair example
 ChairMaker             |  Order				|	Siemens NX
