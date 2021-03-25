@@ -77,8 +77,8 @@ This section will guide you to clone this git repository. Type the following lin
 
 ```sh
 cd /to-your-desired-directory
-git clone https://github.com/aspleym/TMM4275-Assignment-1.git
-cd TMM4275-Assignment-1
+git clone https://github.com/aspleym/TMM4275-Assignment-2.git
+cd TMM4275-Assignment-2
 ```
 
 You are now inside the project folder.
@@ -90,17 +90,17 @@ Type `ls` in the terminal to see the root folder structure.
 In this section you will be guided step by step on how to run the system on your computer.
 #### Fuseki server
 - Go to the directory of the project
-- Enter the directory for the Fuseki server, `fuseki-server`.
+- Enter the directory for the Fuseki server, `Fuseki`.
 - Execute one of the fuseki-server files depending on your operating system:
 	- fuseki-server `UNIX`
 	- fuseki-server.bat `WINDOWS`
 	- fuseki-server.jar `JAVA`
 
 #### Adding OWL model
-- To add the OWL model to the server, open a web browser and type in the following un the URL field: `localhost:3030`.
-- Locate the dataset named /kbe: `http://localhost:3030/dataset.html`
+- To add the OWL model to the server, open a web browser and type in the following un the URL field: `127.0.0.1:3030`.
+- Locate the dataset named /kbe: `http://127.0.0.1:3030/dataset.html`
 - Select the tab *upload files* and then hit the button *+ select files...* to add the OWL-model to the Fuseki server.
-	- The owl file should be: `project-directory/fuseki-server/owl-files/shapes.owl`
+	- The owl file should be: `project-directory/OWL/shapes.owl`
 - Press the button *upload all* and verify that the upload was successful.
 #### Web server
 - To run the Python server, start by opening a command-line interpreter like CMD or Termnial.
@@ -114,7 +114,7 @@ python --version
 ```sh
 python httpserver.py
 ```
-- The web server should be available at: `localhost:8080` in the web browser.
+- The web server should be available at: `127.0.0.1:8080` in the web browser.
 ## Usage
 The website *ChairMaker* is able to simulate and create DFA-files for chair products of three types. Dining-, stool- and modern chair. These different types of chairs have some parameters that can be changed and visualized in a preview window before *ordering* the DFA file.
 
