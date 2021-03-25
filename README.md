@@ -21,6 +21,7 @@
 - [Sketch and diagrams](#sketch-and-diagrams)
 - [Built With](#built-with)
   - [Libraries](#libraries)
+  - [Trajectory Algorithm](#trajectory-algorithm)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Download project](#download-project)
@@ -64,6 +65,10 @@ Everyone that contributed to the project used [Visual Studio Code](https://code.
 - [os](https://docs.python.org/3/library/os.html)
 - [json](https://docs.python.org/3/library/json.html)
 - [pandas](https://pandas.pydata.org/)
+
+#### Trajectory Algorithm
+
+Breadth-first search
 
 ## Getting Started
 
