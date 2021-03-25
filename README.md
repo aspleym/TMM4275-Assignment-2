@@ -1,5 +1,3 @@
-
-
 # TMM4275-Assignment-2
 
 [![](https://img.shields.io/badge/HTML5-a?style=flat&logo=html5&label=Code&color=E34F26&logoColor=ffffff)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
@@ -33,20 +31,22 @@
 - [License](#license)
 
 ## Task
-CAD-based (robot trajectory) potential weld lines generation.  
+
+CAD-based (robot trajectory) potential weld lines generation.
 
 A welding robot has to weld walls to the base plane. Walls can be seen as a maze. The target is to find  
-all the edges connecting walls to the base plane. Having a maze-like structure, develop a 
+all the edges connecting walls to the base plane. Having a maze-like structure, develop a
 KBE solution to generate potential welding lines.
 
 ## Sketch and diagrams
+
 UI sketches:  
 ![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Homepage.png)
 ![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Result.png)
-  
+
 Architecture:  
 ![image of client-server architecture](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png)
-  
+
 Sequence diagrams:  
 ![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png)
 ![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Import_Export%20Sequence.png)
@@ -66,6 +66,7 @@ Everyone that contributed to the project used [Visual Studio Code](https://code.
 - [pandas](https://pandas.pydata.org/)
 
 ### Trajectory Algorithm
+
 <img align="right" src="https://camo.githubusercontent.com/7ea38bf594e2982a200d937c69bee021d603d810d9b9187230faa0f43ccf25ee/687474703a2f2f7265732e636c6f7564696e6172792e636f6d2f647172326d656a68632f696d6167652f75706c6f61642f76313530313336303734362f6266735f7373776d657a2e676966">
 To solve the trajectory problem, we decided early on to use one of the well known pathfinding algorithms. They usualy have a known target from the beginning,
 and finds a path to the target. For this problem, our target were every side of a wall. We decided to use a Breadth-first search algorithm, since it wasn't depending on
@@ -95,67 +96,88 @@ Type `ls` in the terminal to see the root folder structure.
 ### Run the system
 
 In this section you will be guided step by step on how to run the system on your computer.
+
 #### Fuseki server
+
 - Go to the directory of the project
 - Enter the directory for the Fuseki server, `Fuseki`.
 - Execute one of the fuseki-server files depending on your operating system:
-	- fuseki-server `UNIX`
-	- fuseki-server.bat `WINDOWS`
-	- fuseki-server.jar `JAVA`
+  - fuseki-server `UNIX`
+  - fuseki-server.bat `WINDOWS`
+  - fuseki-server.jar `JAVA`
 
 #### Adding OWL model
+
 - To add the OWL model to the server, open a web browser and type in the following un the URL field: `127.0.0.1:3030`.
 - Locate the dataset named /kbe: `http://127.0.0.1:3030/dataset.html`
-- Select the tab *upload files* and then hit the button *+ select files...* to add the OWL-model to the Fuseki server.
-	- The owl file should be: `project-directory/OWL/shapes.owl`
-- Press the button *upload all* and verify that the upload was successful.
+- Select the tab _upload files_ and then hit the button _+ select files..._ to add the OWL-model to the Fuseki server.
+  - The owl file should be: `project-directory/OWL/shapes.owl`
+- Press the button _upload all_ and verify that the upload was successful.
+
 #### Web server
+
 - To run the Python server, start by opening a command-line interpreter like CMD or Termnial.
 - Navigate to the project directory by using commands like `cd`.
 - When inside project folder, type the following to execute check Python version:
+
 ```sh
 python --version
 ```
+
 - You should verify that you are using **Python 3**.
 - To execute the web server, type the following and press enter:
+
 ```sh
 python httpserver.py
 ```
+
 - The web server should be available at: `127.0.0.1:8080` in the web browser.
+
 ## Usage
-The website *Wall-E* is able to read imported *csv*-files made by a user, or use premade templates of different complexities to load a Maze. 
 
-If the user imports a csv, the file will be stored on the server. The predmate templates are already stored on the server. 
+The website _Wall-E_ is able to read imported _csv_-files made by a user, or use premade templates of different complexities to load a Maze.
 
-When the user clicks *Generate Trajectory* the page will generate a welding trajectory for the given maze. The trajectory will be stored on the fuseki server. 
+If the user imports a csv, the file will be stored on the server. The predmate templates are already stored on the server.
 
-A DFA generator will read the trajectory from the server and make a DFA file with the trajectory and the maze. 
+When the user clicks _Generate Trajectory_ the page will generate a welding trajectory for the given maze. The trajectory will be stored on the fuseki server.
 
-The user will be redirected to *order.html* where it will be possible to download the generated DFA file
+A DFA generator will read the trajectory from the server and make a DFA file with the trajectory and the maze.
 
+The user will be redirected to _order.html_ where it will be possible to download the generated DFA file
 
 ### Create your own maze
-- Open the excel document located at ```Maze/Template.xlsx```
+
+- Open the excel document located at `Maze/Template.xlsx`
 - 1 represents open areas, while -1 represent walls
 - The numbers can be changed to make your own maze
 - If you higlight a cell, and drags the small square in the bootom right corner, the number in the cell will be copied to the area you drag it over. This can be used to quikcly create or remove walls.
-- NOTE: cell (0,0) must be 1 as the algorithm
+- NOTE: cell (0,0) must be 1 as the pathfinding algorithm starts in this corner
+- When you are done, select _save as_ and chose _.csv_ as file type
+- This file can now be imported to Wall-E
 
 ## Examples
-### Dining chair example
-ChairMaker             |  Order				|	Siemens NX
-:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/dTest/ChairMaker.PNG)  |  ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/dTest/Order.PNG) |  ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/dTest/NX.PNG)
+
+### Maze and trajectory examples (Templates)
+
+|                                        Low                                        |                                        Medium                                        |                                        High                                        |                                        Extreme                                        |
+| :-------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/LowMaze.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/MediumMaze.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/HighMaze.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/ExtremeMaze.PNG) |
+
+### Overview of the "extreme" maze template
+
+![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/ExtremeMazeOverview.PNG)
 
 ### Stool chair example
-ChairMaker             |  Order				|	Siemens NX
-:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/ChairMaker.PNG)  |  ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/Order.PNG) |  ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/NX.PNG)
+
+|                                         ChairMaker                                         |                                         Order                                         |                                     Siemens NX                                     |
+| :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
+| ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/ChairMaker.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/Order.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/NX.PNG) |
 
 ### Modern chair example
-ChairMaker             |  Order				|	Siemens NX
-:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/ChairMaker.PNG)  |  ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/Order.PNG) |  ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/NX.PNG)
+
+|                                         ChairMaker                                         |                                         Order                                         |                                     Siemens NX                                     |
+| :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
+| ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/ChairMaker.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/Order.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/NX.PNG) |
 
 ## Roadmap
 
@@ -163,13 +185,15 @@ We were not able to complete all of our goals for this project because of the li
 There are a lot of part with the project that we wished to improve upon. We will list them down here for other people to have an idea of what to do next.
 
 Website:
+
 - Users should be able to input the dimensions for the "maze".
 - Reduce possible bugs with wrong inputs. Import file etc.
 - A preview of the maze and the trajectory using three.js.
 
 Python:
+
 - Generate maze with different complexities.
-We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
+  We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
 
 ## File structure
 
@@ -195,7 +219,7 @@ TMM4275-Assignment-1
 │           OrbitControls.js			Camera controll.
 │           order.js				JavaScript for order page.
 │           preview.js				Preview script.
-│	    constraintsLoader.js		This file loads manufacturer constraints from the server.	
+│	    constraintsLoader.js		This file loads manufacturer constraints from the server.
 │           stool_chair.js			Script to build a stool chair in Three.js.
 │           three.js				The Three.js library.
 │           three.min.js			Support file for Three.js
@@ -205,7 +229,7 @@ TMM4275-Assignment-1
 │   │   fuseki-server
 │   │   fuseki-server.bat
 │   │   fuseki-server.jar
-│   │   
+│   │
 │   ├───owl-files
 │   │       shapes.owl				The OWL model.
 │
@@ -224,13 +248,14 @@ TMM4275-Assignment-1
     │   fusekiposter.py				The Python file that contains functions to post chairs to the Fuseki server.
     │   generateDFA.py				Functions to generate DFA files of chairs.
 ```
+
 ## Contributors
 
 [<img src="https://github.com/Magwest1.png?size=50" alt="" data-canonical-src="" width="50" height="50" />](https://github.com/Magwest1)  
-Magnus Ølstad  
+Magnus Ølstad
 
 [<img src="https://github.com/aspleym.png?size=50" alt="" data-canonical-src="" width="50" height="50" />](https://github.com/aspleym)  
-Adrian Pleym  
+Adrian Pleym
 
 ## LICENSE
 
