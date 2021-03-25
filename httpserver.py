@@ -3,6 +3,9 @@ import json
 import socketserver
 import os
 import re
+import time
+import math
+from Python.fusekiposter import *
 
 IP_NUMBER = '127.0.0.1'
 PORT_NUMBER = 8080
@@ -40,14 +43,12 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
     def do_POST(self):
-        print("YEP")
         content_type = self.headers['content-type']
         if not content_type:
             return (False, "Content-Type header doesn't contain boundary")
         boundary = content_type.split("=")[1].encode()
         if boundary.decode('utf-8') == 'UTF-8':
             # We got one of the predefined mazes
-            print("HER")
             content_len = int(self.headers['Content-Length'])
             post_body = self.rfile.read(content_len)
 
@@ -55,10 +56,12 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
             parameters = post_string.split("&")
             mazeUrl = parameters[0].split("=")[1]
             print(mazeUrl)
+            name = math.floor(time.time()*1000)
         else:
             # We got a custom csv
-            r, info, path = self.deal_post_data(boundary)
-            print(r, info, path)
+            r, info, path, name = self.deal_post_data(boundary)
+            print(r, info, path, name)
+        
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
     def deal_post_data(self, boundary):
@@ -73,6 +76,7 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         fn = re.findall(r'Content-Disposition.*name="file"; filename="(.*)"', line.decode())
         if not fn:
             return (False, "Can't find out file name...")
+        name = fn
         path = self.translate_path(self.path)
         rel_path = "Maze/Uploaded/" + fn[0]
         fn = os.path.join(path, rel_path)
@@ -96,7 +100,7 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
                     preline = preline[0:-1]
                 out.write(preline)
                 out.close()
-                return (True, "Upload success!", "%s" % fn)
+                return (True, "Upload success!", "%s", "%s" % fn)
             else:
                 out.write(preline)
                 preline = line
