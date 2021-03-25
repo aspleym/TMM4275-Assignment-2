@@ -3,8 +3,8 @@ from MazeReader import readCsv, writeCsv
 
 class Maze:
 
-    def __init__(self):
-        self.data = readCsv()
+    def __init__(self, fileName):
+        self.data = readCsv(fileName)
         self.height = self.data.shape[0]
 
         self.width = self.data.shape[1]
@@ -151,8 +151,3 @@ class Maze:
 
         for i, t in enumerate(self.trajectory):
             self.data[t[0], t[1]] = 5 + i
-
-
-m = Maze()
-m.getTrajectory()
-writeCsv(m.data)

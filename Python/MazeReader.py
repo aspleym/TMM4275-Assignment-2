@@ -2,10 +2,10 @@ import pandas as pd
 import os
 
 
-def readCsv():
+def readCsv(fileName):
 
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, '../Maze/Basic3.csv')
+    filename = os.path.join(dirname, '../Maze/Uploaded/' + fileName)
     print(filename)
 
     df = pd.read_csv(filename, index_col=None, header=None, sep=';')

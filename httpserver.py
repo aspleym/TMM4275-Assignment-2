@@ -66,7 +66,6 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         remainbytes = int(self.headers['content-length'])
         line = self.rfile.readline()
         remainbytes -= len(line)
-        print(line)
         if not boundary in line:
             return (False, "Content NOT begin with boundary")
         line = self.rfile.readline()
@@ -75,7 +74,8 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         if not fn:
             return (False, "Can't find out file name...")
         path = self.translate_path(self.path)
-        fn = os.path.join(path, fn[0])
+        rel_path = "Maze/Uploaded/" + fn[0]
+        fn = os.path.join(path, rel_path)
         line = self.rfile.readline()
         remainbytes -= len(line)
         line = self.rfile.readline()

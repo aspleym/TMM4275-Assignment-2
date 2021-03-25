@@ -7,7 +7,11 @@ DefClass:<T_NAME> (%ug_create_instance ug_base_part);
 <TRAJECTORY_POINTS>
 };
 
-(List) children: children() + {trajectory_list:};
+(List) blocks: {
+<BLOCK_POINTS>
+};
+
+(List) children: children() + {trajectory_list:} + {block_list:};
 
 
 (List) trajectory_list: loop
@@ -19,6 +23,21 @@ DefClass:<T_NAME> (%ug_create_instance ug_base_part);
                 class, ug_line;
                 start_point, nth($i, trajectory:);
                 end_point, nth($i+1, trajectory:);
+                color, if ($i = 1) ug_askClosestColor(BLUE) else ug_askClosestColor(RED);
             }
         )};
+};
+
+(List) block_list: loop
+{
+  for $i from 1 to length(blocks:);
+    append {ug_createInstance(
+        {
+            class,      ug_block;
+            length,     1;
+            width,      1;
+            height,     5;
+            Origin,     nth($i, blocks:);
+        }
+    )};
 };
