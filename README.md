@@ -10,7 +10,6 @@
 [![](https://img.shields.io/badge/VSCode-a?style=flat&logo=visual-studio-code&label=Editor&color=007ACC)](https://code.visualstudio.com/)
 [![](https://img.shields.io/badge/Excel-a?style=flat&logo=microsoft-excel&label=Utility&color=217346&logoColor=ffffff)](https://www.microsoft.com/en-ww/microsoft-365/excel)
 [![](https://img.shields.io/badge/Three.js-a?style=flat&logo=three.js&label=Library&color=000000&logoColor=ffffff)](https://threejs.org/)
-[![](https://img.shields.io/badge/Fuseki-a?style=flat&logo=apache&label=Server&color=D22128&logoColor=ffffff)](https://jena.apache.org/documentation/fuseki2/index.html)
 [![](https://img.shields.io/badge/Fuseki-a?style=flat&logo=apache&label=Server&color=D22128&logoColor=ffffff)](https://jena.apache.org/documentation/fuseki2/index.html)  
 ![](https://img.shields.io/maintenance/no/2021)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -147,6 +146,16 @@ ChairMaker             |  Order				|	Siemens NX
 
 ## Roadmap
 
+We were not able to complete all of our goals for this project because of the limited time and other school tasks.  
+There are a lot of part with the project that we wished to improve upon. We will list them down here for other people to have an idea of what to do next.
+
+Website:
+- Users should be able to input the dimensions for the "maze".
+- Reduce possible bugs with wrong inputs. Import file etc.
+- A preview of the maze and the trajectory using three.js.
+
+Python:
+- Generate maze with different complexities.
 We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
 
 ## File structure
