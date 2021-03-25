@@ -123,6 +123,8 @@ python httpserver.py
 ```
 - The web server should be available at: `127.0.0.1:8080` in the web browser.
 ## Usage
+The website *Wall-E* is able to read imported *csv*-files or use templates of dif
+
 The website *ChairMaker* is able to simulate and create DFA-files for chair products of three types. Dining-, stool- and modern chair. These different types of chairs have some parameters that can be changed and visualized in a preview window before *ordering* the DFA file.
 
 If the values in the parameters are valid, the user will be directed to a *order page* where it will be possible to view the chair and download the corresponding DFA file.
