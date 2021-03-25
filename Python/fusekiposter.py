@@ -5,7 +5,6 @@ def postTrajectory(name, trajectory):
     points = "\n "
     pointNames = ""
     for i, t in enumerate(trajectory):
-        print(i)
         if i != 0:
             pointNames += ', '
         points += f'kbe:P{name}{i} a owl:NamedIndividual, kbe:Point;\n        kbe:x\t"{t[0]}"^^xsd:integer;\n        kbe:y   "{t[1]}"^^xsd:integer;\n        kbe:index "{i}"^^xsd:integer.\n\n '
@@ -24,3 +23,22 @@ def postTrajectory(name, trajectory):
     }
 
     response = requests.post('http://127.0.0.1:3030/kbe', headers=headers, data=data)
+
+def getTrajectory(name):
+
+    headers = {
+    'Accept': 'application/sparql-results+json,*/*;q=0.9',
+    }
+
+    prefix = 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX kbe:<http://www.my-kbe.com/shapes.owl#>\n  SELECT *\n  WHERE\n  {\n'
+
+    info = f' ?trajectory a kbe:Trajectory.\n  ?trajectory kbe:Points ?points.\n\t?points kbe:Point ?point.\n  ?point kbe:index ?index.\n    ?point kbe:x ?x.\n    ?point kbe:y ?y.\nFILTER(?trajectory = kbe:Traj{name}).'
+    postfix = '\n  } '
+    data = {
+        'query': prefix + info + postfix
+    }
+    response = requests.post('http://127.0.0.1:3030/kbe', headers=headers, data=data)
+
+    jsonResponse = response.json()
+
+    return jsonResponse
