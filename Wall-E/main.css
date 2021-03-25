@@ -65,6 +65,7 @@ h2 {
   height: fit-content;
   border-radius: 5px;
   text-align: center;
+  align-items: center;
 }
 
 .preview {
@@ -86,6 +87,11 @@ h2 {
   height: 50px;
   flex-direction: row;
   align-items: center;
+}
+
+#import {
+  width: 30%;
+  margin: 0;
 }
 
 #wireframe {
@@ -117,7 +123,7 @@ select {
 .form {
   display: flex;
 }
-input {
+.textInput {
   display: flex;
   height: 30px;
   font-size: 20px;
