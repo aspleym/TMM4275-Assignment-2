@@ -40,16 +40,17 @@ KBE solution to generate potential welding lines.
 
 ## Sketch and diagrams
 
-UI sketches:  
-![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Homepage.png)
-![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Result.png)
+### UI sketches:
 
-Architecture:  
-![image of client-server architecture](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png)
+|                                                   Homepage                                                    |                                                 Result page                                                 |
+| :-----------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: |
+| ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Homepage.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Result.png) |
 
-Sequence diagrams:  
-![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png)
-![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Import_Export%20Sequence.png)
+### Architecture and Sequence diagrams:
+
+|                                           Architecture                                           |                                                  Generate trajectory/maze                                                   |                                           Import/Export                                           |
+| :----------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+| ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png) | ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.pngg) |
 
 ## Built With
 
@@ -167,18 +168,6 @@ The user will be redirected to _order.html_ where it will be possible to downloa
 
 ![](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/ExtremeMazeOverview.PNG)
 
-### Stool chair example
-
-|                                         ChairMaker                                         |                                         Order                                         |                                     Siemens NX                                     |
-| :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/ChairMaker.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/Order.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/sTest/NX.PNG) |
-
-### Modern chair example
-
-|                                         ChairMaker                                         |                                         Order                                         |                                     Siemens NX                                     |
-| :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/ChairMaker.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/Order.PNG) | ![](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/mTest/NX.PNG) |
-
 ## Roadmap
 
 We were not able to complete all of our goals for this project because of the limited time and other school tasks.  
@@ -194,6 +183,10 @@ Python:
 
 - Generate maze with different complexities.
   We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
+
+NX:
+
+- Change color on the trajectory depending on if the welding robot is welding, or just moving. This information can already be returned from the pathfinding algorithm.
 
 ## File structure
 
