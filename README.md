@@ -32,15 +32,20 @@
 - [License](#license)
 
 ## Task
+CAD-based (robot trajectory) potential weld lines generation.  
 
-You have founded a company implementing KBE systems for various manufacturers. This time you have received an offer to build the KBE for the factory making furniture. In particular, a parametric design of a chair shall be made. Customers should be able to define the “sizes”/”shapes” of different elements of the chair and observe the result as well as if it is possible to make. Customer wishes should be checked with the capabilities at the production floor.
+A welding robot has to weld walls to the base plane. Walls can be seen as a maze. The target is to find  
+all the edges connecting walls to the base plane. Having a maze-like structure, develop a 
+KBE solution to generate potential welding lines.
 
 ## Sketch and diagrams
-![image of ui example](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/ui.png)
+![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Homepage.png)
+![image of ui example](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/Welding%20trajectory%20-%20Result.png)
 
-![image of client-server architecture](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/Client-server%20architecture.png)
+![image of client-server architecture](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Architecture.png)
 
-![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-1/blob/main/images/Sequence%20diagram.png)
+![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Sequence%20generate%20maze%20and%20path.png)
+![image of sequence diagram](https://github.com/aspleym/TMM4275-Assignment-2/blob/main/images/UML-Notes-Import_Export%20Sequence.png)
 
 ## Built With
 
