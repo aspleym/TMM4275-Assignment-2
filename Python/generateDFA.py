@@ -7,6 +7,9 @@ from Python.fusekiposter import getTrajectory
 
 #! THIS FUNCTION GENERATES A DFA WITH BOTH A MAZE AND TRAJECTORY FROM CSV
 
+def getIndex(elem):
+    return elem[2]
+
 def generateDFA(fileName):
     # Request trajectory data from Fuseki-server
     data = getTrajectory(fileName.removesuffix(".csv"))
@@ -14,7 +17,6 @@ def generateDFA(fileName):
     mazeData = readCsv(fileName)
 
     blocks = ""
-    trajectory = ""
 
     height = mazeData.shape[0]
     width = mazeData.shape[1]
@@ -25,13 +27,21 @@ def generateDFA(fileName):
             if (mazeData[i, j] == -1):
                 blocks = blocks + f'Point({i - 0.5}, {j - 0.5}, 0),\n'
    
+    trajectoryData = []
 
     for p in data['results']['bindings']:
         x = int(p['x']['value'])
         y = int(p['y']['value'])
         index = int(p['index']['value'])
 
-        trajectory = trajectory + f'Point({x}, {y}, 2.5),\n'
+        trajectoryData.append((x, y, index))
+
+    trajectoryData.sort(key=getIndex)
+
+    trajectory = ""
+
+    for p in trajectoryData:
+        trajectory = trajectory + f'Point({p[0]}, {p[1]}, 2.5),\n'
 
     trajectory = trajectory.removesuffix(",\n")
 
