@@ -1,0 +1,39 @@
+#Insert, NB viktig med stor bokstav på navnet, og vi må ha navn på points
+
+PREFIX kbe:<http://www.my-kbe.com/shapes.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+INSERT
+{
+kbe:Traj1 a owl:NamedIndividual, kbe:Trajectory;
+	kbe:Points	kbe:p1, kbe:p2, kbe:p3.
+}
+where {}
+
+# Get ALL trajectories
+PREFIX kbe:<http://www.my-kbe.com/shapes.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+  SELECT *
+  WHERE
+  {
+  ?trajectory a kbe:Trajectory.
+  ?trajectory kbe:Points ?point.
+  ?point kbe:index ?index.
+    ?point kbe:x ?x.
+    ?point kbe:y ?y.
+  }
+
+# Search
+PREFIX kbe:<http://www.my-kbe.com/shapes.owl#>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  SELECT *
+  WHERE
+  {
+  ?trajectory a kbe:Trajectory.
+  ?trajectory kbe:Points ?point.
+  ?point kbe:index ?index.
+    ?point kbe:x ?x.
+    ?point kbe:y ?y.   
+    FILTER(?trajectory = kbe:Traj1).
+  }
