@@ -60,7 +60,7 @@ function changeMazeComplexity(value) {
         if (i == parseInt(value)) {
             btnGroup[i].style.backgroundColor = "#008cff";
             btnGroup[i].style.color = "#fff";
-            mazeName = "url=../Maze/maze" + value + ".csv"
+            mazeName = "url=maze" + value + ".csv"
             console.log("changed to " + value);
 
         } else {
