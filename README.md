@@ -66,8 +66,11 @@ Everyone that contributed to the project used [Visual Studio Code](https://code.
 - [pandas](https://pandas.pydata.org/)
 
 ### Trajectory Algorithm
-
-Breadth-first search
+<img align="right" src="https://camo.githubusercontent.com/7ea38bf594e2982a200d937c69bee021d603d810d9b9187230faa0f43ccf25ee/687474703a2f2f7265732e636c6f7564696e6172792e636f6d2f647172326d656a68632f696d6167652f75706c6f61642f76313530313336303734362f6266735f7373776d657a2e676966">
+To solve the trajectory problem, we decided early on to use one of the well known pathfinding algorithms. They usualy have a known target from the beginning,
+and finds a path to the target. For this problem, our target were every side of a wall. We decided to use a **Breadth-first search** algorithm, since it wasn't depending on
+searching for a specific target. Since we already needed to check every position in the maze, we could easly use this algorithm to find the closest wall that needed to 
+be welded. Further the algorithm kept continously weld lines around the maze until it had welded every edge of the wall. Some walls were not connected to the previous wall, therefor the algorithm would search for other walls that were reachable and not welded to the base plane.
 
 ## Getting Started
 
