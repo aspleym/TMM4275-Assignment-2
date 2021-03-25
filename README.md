@@ -201,52 +201,52 @@ This is an overview of the file structure for this repository and a short explan
 
 ```
 TMM4275-Assignment-2
-│   .gitignore                        A file to tell Github to ignore files.
-│   httpserver.py                     httpserver.py: Python script to execute a http server and request handler for the customer.
-│   LICENSE                           Standard license file to tell it's class of license.
-│   queries.txt                       A txt file with examples for some of the queries in SPARQL.
-│   README.md                         This file.
+│   .gitignore                          A file to tell Github to ignore files.
+│   httpserver.py                       httpserver.py: Python script to execute a http server and request handler for the customer.
+│   LICENSE                             Standard license file to tell it's class of license.
+│   queries.txt                         A txt file with examples for some of the queries in SPARQL.
+│   README.md                           This file.
 │
 ├───DFA                                 Templates for generating DFA-files.
 │   │   MazeAndTrajectoryTemplate.dfa
 │   │   MazeTemplate.dfa
 │   │   TrajectoryTemplate.dfa
 │   │
-│   └───products                        Were we store generated DFA-files.
+│   └───products                        Where we store generated DFA-files.
 │
-├───Fuseki                          The folder for the Fuseki sever.
+├───Fuseki                              The folder for the Fuseki sever.
 │
-├───images                          Images for the README.
+├───images                              Images for the README.
 │
-├───Maze                            Maze description files. Templates as both csv and xlsx (Excel) files.
+├───Maze                                Maze description files. Templates as both csv and xlsx (Excel) files.
 │   │   Template.csv
 │   │   Template.xlsx
 │   │
 │   └───Uploaded
-│           maze0.csv               Predefined maze with low complexity
-│           maze1.csv               Predefined maze with medium complexity
-│           maze2.csv               Predefined maze with high complexity
-│           maze3.csv               Predefined maze with extreme complexity
+│           maze0.csv                   Predefined maze with low complexity
+│           maze1.csv                   Predefined maze with medium complexity
+│           maze2.csv                   Predefined maze with high complexity
+│           maze3.csv                   Predefined maze with extreme complexity
 │
 ├───OWL
-│       shapes.owl              The OWL model.
+│       shapes.owl                      The OWL model.
 │
 ├───Python
-│   │   fusekiposter.py         The Python file that contains functions to post and get trajectories from the Fuseki server.
-│   │   generateDFA.py          Functions to generate DFA files of trajectory and maze.
-│   │   Maze.py                   Python file to create a Maze model. Contains pathfinding algorithm and helper functions
-│   │   MazeReader.py               Python file to read or write csv-files from server and return it as an array
+│   │   fusekiposter.py                 The Python file that contains functions to post and get trajectories from the Fuseki server.
+│   │   generateDFA.py                  Functions to generate DFA files of trajectory and maze.
+│   │   Maze.py                         Python file to create a Maze model. Contains pathfinding algorithm and helper functions
+│   │   MazeReader.py                   Python file to read or write csv-files from server and return it as an array
 │
 └───Wall-E
-    │   index.html              This is the html file for our Homepage.
-    │   main.css                Styling for index.html.
-    │   order.css               Styling for the result page.
-    │   order.html              The result page giving a download link for the DFA-file.
+    │   index.html                      This is the html file for our Homepage.
+    │   main.css                        Styling for index.html.
+    │   order.css                       Styling for the result page.
+    │   order.html                      The result page giving a download link for the DFA-file.
     │
     └───js
-            index.js            Multiple scripts used to handle events on the website.
-            OrbitControls.js    Camera library for Three.js.
-            three.js            Three.js Library.
+            index.js                    Multiple scripts used to handle events on the website.
+            OrbitControls.js            Camera library for Three.js.
+            three.js                    Three.js Library.
             three.min.js
             three.module.js
 ```
