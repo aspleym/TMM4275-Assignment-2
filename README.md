@@ -140,6 +140,8 @@ The website _Wall-E_ is able to read imported csv-files made by a user, or use p
 
 If the user imports a csv-file, the file will be stored on the server. The premade templates are already stored on the server.
 
+A preview of the loaded maze will be presented in the preview box to the right using *three.js* library.
+
 When the user clicks _Generate Trajectory_ the page will generate a welding trajectory for the given maze. The trajectory will be stored on the fuseki server.
 
 A DFA generator will read the trajectory from the fuseki server and make a DFA-file displaying the trajectory and the maze.
@@ -171,13 +173,13 @@ The user will be redirected to _order.html_ where it is possible to download the
 ## Roadmap
 
 We were not able to complete all of our goals for this project because of the limited time and other school tasks.  
-There are a lot of part with the project that we wished to improve upon. We will list them down here for other people to have an idea of what to do next. We aim to implement some of these features in assignment 3.
+There were some parts of the project we wished to improve upon. We will list them down here for other people to have an idea of what to do next. We aim to implement some of these features in assignment 3.
 
 #### Website:
 
 - Users should be able to input the dimensions for the "maze".
 - Reduce possible bugs with wrong inputs. Import file etc.
-- A preview of the maze and the trajectory using three.js.
+- A preview of the trajectory using three.js.
 - Option to export random generated mazes.
 
 #### Python:
@@ -190,7 +192,7 @@ There are a lot of part with the project that we wished to improve upon. We will
 
 #### NX:
 
-- Change color on the trajectory depending on if the welding robot is welding, or just moving. This information can already be returned from the pathfinding algorithm.
+- Change color on the trajectory depending on whether or not the welding robot is welding, or just moving. This information can already be returned from the pathfinding algorithm.
 - Improve DFA file to optimize construction time in NX.
 
 We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
