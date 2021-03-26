@@ -204,7 +204,7 @@ There were some parts of the project we wished to improve upon. We will list the
 - Change color on the trajectory depending on whether or not the welding robot is welding, or just moving. This information can already be returned from the pathfinding algorithm.
 - Improve DFA file to optimize construction time in NX.
 
-We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 19. February 2021.
+We have no further plans for this school project. Until there are changes to our roadmap, this project will have no maintenance of the code as of 26. Mars 2021.
 
 ## File structure
 
