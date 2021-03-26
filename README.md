@@ -79,6 +79,13 @@ be welded. Further the algorithm kept continously weld lines around the maze unt
 ### Prerequisites
 
 To run this project you would need to install [Python 3.9](https://www.python.org/) to run the website and [Java](https://www.java.com/en/) if you want to run the Fuseki server with Java.
+There is also a need for a Python library to be installed, [Pandas](https://pandas.pydata.org/).
+
+Pandas can easly be installed via pip for PyPi. Open Command prompt or a Terminal and type in the following:
+
+```sh
+pip install pandas
+```
 
 ### Download project
 
@@ -159,6 +166,8 @@ The user will be redirected to _order.html_ where it is possible to download the
 - This file can now be imported to Wall-E.
 
 ## Examples
+
+You can try out a demo of this project [here!](https://walle.magnusolstad.no)
 
 ### Maze and trajectory examples (Templates)
 
