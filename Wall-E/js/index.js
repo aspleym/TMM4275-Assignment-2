@@ -1,3 +1,5 @@
+import { render, mazePreviewFromFile, mazePreviewFromURL } from "./preview.js";
+
 var mLength = 100;
 var mWidth = 100;
 var mazeComplexity = 4;
@@ -20,7 +22,9 @@ const fileInput = document.getElementById("import");
 // Listen if user uploads file
 fileInput.addEventListener("change", () => {
   fileList = fileInput.files;
-  console.log(fileList[0].name);
+  console.log(fileList[0]);
+  mazePreviewFromFile(fileList[0], false);
+
   mazeName = null;
   changeMazeComplexity(4);
 });
@@ -28,7 +32,7 @@ fileInput.addEventListener("change", () => {
 const lowButton = document.getElementById("low-btn");
 // Listen if user selects a predefiend maze
 lowButton.addEventListener("click", () => {
-  mazeComplexity = 0;
+    mazeComplexity = 0;
   fileInput.value = null;
   changeMazeComplexity(0);
 });
@@ -66,6 +70,9 @@ function changeMazeComplexity(value) {
       btnGroup[i].style.backgroundColor = "#008cff";
       btnGroup[i].style.color = "#fff";
       mazeName = "url=maze" + value + ".csv";
+      if ([0,1,2,3].includes(parseInt(value))) {
+          mazePreviewFromURL('./Maze/Uploaded/maze'+ value + '.csv', false);
+      }
       console.log("changed to " + value);
     } else {
       btnGroup[i].style.backgroundColor = "#fff";
@@ -75,6 +82,7 @@ function changeMazeComplexity(value) {
 }
 // Sets selected maze to "low" when page loads
 window.onload = () => {
+  render(document);
   changeMazeComplexity(0);
 };
 // Catch when user submits
