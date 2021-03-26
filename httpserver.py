@@ -39,7 +39,8 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         else:
             # We got a custom csv
             # Stores the file on the server and returs the file name
-            r, info, path, name = self.deal_post_data(boundary)
+            r, info, path = self.deal_post_data(boundary)
+            name = path.split('/')[-1]
         # Creating a maze from csv file
         m = Maze(name)
         # Generating trajectory
@@ -87,7 +88,7 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
                     preline = preline[0:-1]
                 out.write(preline)
                 out.close()
-                return (True, "Upload success!", "%s", "%s" % (fn, name))
+                return (True, "Upload success!", "%s" % fn)
             else:
                 out.write(preline)
                 preline = line
