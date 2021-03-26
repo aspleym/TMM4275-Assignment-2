@@ -27,14 +27,14 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         if not content_type:
             return (False, "Content-Type header doesn't contain boundary")
         boundary = content_type.split("=")[1].encode()
-        if boundary.decode('utf-8') == 'UTF-8':
+        if boundary.decode('utf-8') == 'utf-8':
             # We got one of the predefined mazes
             # Gets the file name:
             content_len = int(self.headers['Content-Length'])
             post_body = self.rfile.read(content_len)
             post_string = post_body.decode('utf-8')
             parameters = post_string.split("&")
-            mazeUrl = parameters[0].split("=")[1]
+            mazeUrl = parameters[0]
             name = mazeUrl
         else:
             # We got a custom csv

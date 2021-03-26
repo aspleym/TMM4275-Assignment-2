@@ -69,7 +69,7 @@ function changeMazeComplexity(value) {
     if (i == parseInt(value)) {
       btnGroup[i].style.backgroundColor = "#008cff";
       btnGroup[i].style.color = "#fff";
-      mazeName = "url=maze" + value + ".csv";
+      mazeName = "maze" + value + ".csv";
       if ([0,1,2,3].includes(parseInt(value))) {
           mazePreviewFromURL('./Maze/Uploaded/maze'+ value + '.csv', false);
       }
