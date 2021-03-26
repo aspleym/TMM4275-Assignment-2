@@ -78,7 +78,7 @@ be welded. Further the algorithm kept continously weld lines around the maze unt
 
 ### Prerequisites
 
-To run this project you would need to install [Python](https://www.python.org/) to run the website and [Java](https://www.java.com/en/) if you want to run the Fuseki server with Java.
+To run this project you would need to install [Python 3.9](https://www.python.org/) to run the website and [Java](https://www.java.com/en/) if you want to run the Fuseki server with Java.
 
 ### Download project
 
